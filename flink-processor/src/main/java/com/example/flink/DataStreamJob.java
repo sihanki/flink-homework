@@ -103,7 +103,7 @@ public class DataStreamJob {
 				row.getFieldAs("humidity"),
 				row.getFieldAs("timestamp")));
 
-		final int WINDOW_SECONDS = 5;
+		final int WINDOW_SECONDS = 60;
 		DataStream<JoinedRecord> resultStream = joinedStreamFields
 				.keyBy(JoinedRecord::getId)
 				.window(TumblingProcessingTimeWindows.of(Duration.ofSeconds(WINDOW_SECONDS)))
